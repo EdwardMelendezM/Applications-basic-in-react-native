@@ -91,7 +91,7 @@ const Calculadora = () => {
     if (operacion === '='){
       if (operacionAnterior === '+') { sumar(); }
       if (operacionAnterior === '-') { restar();}
-      if (operacionAnterior === '*') { multiplicar();}
+      if (operacionAnterior === 'x') { multiplicar();}
       if (operacionAnterior === '/') { dividir(); }
 
     }
@@ -105,11 +105,12 @@ const Calculadora = () => {
     }
     if (operacion === 'x'){
       setOperacionAnterior('x');
-      multiplicar();
+      (valorActual !== '0') && multiplicar();
+
     }
     if (operacion === '/') {
       setOperacionAnterior('/');
-      multiplicar();
+      (valorActual !== '0') && dividir();
     }
   };
   const limpiarTodo = ()=>{
