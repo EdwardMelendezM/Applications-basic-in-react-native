@@ -6,7 +6,7 @@ import { styles } from '../theme/style';
 
 interface CalculadoraButtonProps{
   text:string;
-  onPress?:()=>void;
+  onPress?:(num:string)=>void;
   theme?:string;
   color?:string;
   large?:boolean;
@@ -15,7 +15,7 @@ interface CalculadoraButtonProps{
 
 const CalculadoraButton:React.FC<CalculadoraButtonProps> = ({
   text,
-  // onPress,
+  onPress = ()=>{},
   theme = '#ccc',
   color = '#000',
   large = false,
@@ -23,7 +23,7 @@ const CalculadoraButton:React.FC<CalculadoraButtonProps> = ({
 
   return (
     <TouchableOpacity
-      onPress={()=>{}}
+      onPress={() => onPress(text)}
       style={{
         ...styles.calculadoraButton,
         backgroundColor: theme,
